@@ -1,0 +1,26 @@
+bool isAnagram(char* s, char* t) {
+
+    if (strlen(s) != strlen(t)){
+        return false;
+    }
+    
+    int frequency[26] = {0} ;
+
+    for(int i = 0; s[i] != '\0' ; i++){
+
+        frequency[s[i] - 'a' ]++;
+    }
+    
+    for(int i = 0; t[i] != '\0' ; i++){
+
+       frequency[t[i] - 'a' ]--;
+    }
+
+    for(int i = 0; i < 26 ; i++){
+        if(frequency[i] != 0 ){
+            return false ;
+        }
+    }
+
+    return true;
+}
